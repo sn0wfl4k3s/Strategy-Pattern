@@ -10,16 +10,13 @@ namespace Strategy
 
     static class TipoFreteExtension
     {
-        public static IFrete ObterFrete(this TipoFrete t)
+        public static IFrete ObterFrete(this TipoFrete tipo)
         {
-            switch (t)
+            switch (tipo)
             {
-                case TipoFrete.NORMAL:
-                    return new Normal();
-                case TipoFrete.SEDEX:
-                    return new Sedex();
-                default:
-                    return null;
+                case TipoFrete.NORMAL: return new Normal();
+                case TipoFrete.SEDEX:  return new Sedex();
+                default: return null;
             }
         }
     }
