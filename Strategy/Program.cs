@@ -1,5 +1,4 @@
-﻿using Strategy.Fretes;
-using System;
+﻿using System;
 
 namespace Strategy
 {

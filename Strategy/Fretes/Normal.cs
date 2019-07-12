@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Strategy.Fretes
+﻿namespace Strategy.Fretes
 {
     public class Normal : IFrete
     {
