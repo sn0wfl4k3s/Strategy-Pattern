@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Strategy.Contratos;
+using Strategy.Fretes;
+using System;
 
 namespace Strategy
 {
@@ -7,14 +9,19 @@ namespace Strategy
         static void Main(string[] args)
         {
             Console.Write("Digite a distância: ");
-            int distancia = int.Parse(Console.ReadLine());
+            
+            var distancia = int.Parse(Console.ReadLine());
 
-            Console.Write("Qual o tipo de Frete? [0-Normal / 1-Sedex]");
-            int escolha = int.Parse(Console.ReadLine());
+            IFrete frete = distancia switch
+            {
+                var d when d < 200 => new Normal(),
+                _ => new Sedex(),
+            };
 
-            TipoFrete tipo = (TipoFrete) escolha;
-            IFrete frete = tipo.ObterFrete();
-            Console.WriteLine(frete.CalculaFrete(distancia));
+            var valor = frete.CalculaFrete(distancia);
+
+            Console.WriteLine("Valor do frete: {0}", valor);
+            Console.WriteLine("Tipo..........: {0}", frete.Tipo);
         }
     }
 }
